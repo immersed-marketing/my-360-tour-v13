@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My 360 Virtual Tour</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <style>
+        body, html { margin: 0; padding: 0; overflow: hidden; background: #000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        #container { width: 100vw; height: 100vh; position: relative; display: flex; flex-direction: column; }
+        #viewer-wrapper { flex: 1; position: relative; overflow: hidden; }
+        #panorama { width: 100%; height: 100%; }
+        
+        /* Thumbnails */
+        #thumbs-container {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            z-index: 10;
+        }
+        .thumb {
+            flex-shrink: 0;
+            width: 120px;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.2s;
+        }
+        .thumb.active { border-color: #10b981; transform: scale(1.05); }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .thumb span {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 10px;
+            padding: 4px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Overlay */
+        #fade-overlay {
+            position: absolute;
+            inset: 0;
+            background: black;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        #fade-overlay.active { opacity: 1; }
+
+        /* Welcome Screen */
+        #welcome-screen {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #171717;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .welcome-content { max-width: 500px; }
+        .welcome-content h1 { font-size: 32px; margin-bottom: 10px; font-weight: 800; color: #10b981; }
+        .welcome-content p { font-size: 16px; color: #404040; margin-bottom: 30px; line-height: 1.6; }
+        .instructions {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .instructions h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #10b981; margin-bottom: 15px; }
+        .instruction-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 14px; color: #475569; }
+        .instruction-dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; }
+        
+        .start-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2);
+        }
+        .start-btn:hover { transform: scale(1.05); background: #059669; }
+
+        /* CTA Button */
+        #cta-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1500;
+            background: white;
+            color: #171717;
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background: #10b981;
+            color: white;
+        }
+
+        /* Hide scrollbar */
+        #thumbs-container::-webkit-scrollbar { display: none; }
+        #thumbs-container { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="viewer-wrapper">
+        <div id="panorama"></div>
+        <div id="fade-overlay"></div>
+        <a href="https://www.immersed.marketing" target="_blank" id="cta-button">
+            <span>Want your own?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+        <div id="welcome-screen">
+            <div class="welcome-content">
+                <h1>My 360 Virtual Tour</h1>
+                <p>Explore this immersive 360 virtual environment. Test with all photos and some connections</p>
+                <div class="instructions">
+                    <h2>How to Navigate</h2>
+                    <div class="instruction-item"><div class="instruction-dot"></div> Click and drag to look around</div>
+                    <div class="instruction-item"><div class="instruction-dot"></div> Scroll to zoom in and out</div>
+                    <div class="instruction-item"><div class="instruction-dot"></div> Click hotspots to move between rooms</div>
+                    <div class="instruction-item"><div class="instruction-dot"></div> Use the bottom strip for quick navigation</div>
+                </div>
+                <button class="start-btn" onclick="startTour()">Start Exploring</button>
+            </div>
+        </div>
+    </div>
+    <div id="thumbs-container"></div>
+</div>
+<script>
+const isMobile = window.innerWidth < 768;
+let viewer;
+const overlay = document.getElementById('fade-overlay');
+const thumbsContainer = document.getElementById('thumbs-container');
+const welcomeScreen = document.getElementById('welcome-screen');
+const prefetchedScenes = new Set();
+const prefetchQueue = [];
+let isPrefetching = false;
+
+function processQueue(config) {
+    if (isPrefetching || prefetchQueue.length === 0) return;
+    isPrefetching = true;
+    
+    const sceneId = prefetchQueue.shift();
+    if (prefetchedScenes.has(sceneId)) {
+        isPrefetching = false;
+        processQueue(config);
+        return;
+    }
+
+    const scene = config.scenes[sceneId];
+    if (!scene) {
+        isPrefetching = false;
+        processQueue(config);
+        return;
+    }
+    
+    prefetchedScenes.add(sceneId);
+    const img = new Image();
+    
+    const next = () => {
+        setTimeout(() => {
+            isPrefetching = false;
+            processQueue(config);
+        }, isMobile ? 1500 : 500); // Longer gap on mobile
+    };
+    
+    img.onload = () => {
+        if (img.decode) {
+            img.decode().then(next).catch(next);
+        } else {
+            next();
+        }
+    };
+    img.onerror = next;
+    img.src = scene.panorama;
+}
+
+function addToPrefetchQueue(sceneId, config) {
+    if (!sceneId || prefetchedScenes.has(sceneId) || prefetchQueue.includes(sceneId)) return;
+    prefetchQueue.push(sceneId);
+    processQueue(config);
+}
+
+function prefetchNeighbors(sceneId, config) {
+    const scene = config.scenes[sceneId];
+    if (!scene) return;
+    
+    scene.hotSpots.forEach(hs => {
+        if (hs._targetSceneId) {
+            addToPrefetchQueue(hs._targetSceneId, config);
+        }
+    });
+}
+
+function startTour() {
+    welcomeScreen.style.opacity = '0';
+    setTimeout(() => {
+        welcomeScreen.style.display = 'none';
+    }, 500);
+}
+
+function transitionToScene(sceneId, targetPitch, targetYaw) {
+    overlay.classList.add('active');
+    
+    // Start zooming in slightly for effect
+    const currentHfov = viewer.getHfov();
+    viewer.setHfov(currentHfov - 20, 500);
+
+    setTimeout(() => {
+        viewer.loadScene(sceneId, targetPitch, targetYaw);
+        updateActiveThumb(sceneId);
+        setTimeout(() => {
+            overlay.classList.remove('active');
+        }, 600);
+    }, 400);
+}
+
+function updateActiveThumb(sceneId) {
+    document.querySelectorAll('.thumb').forEach(t => {
+        t.classList.toggle('active', t.dataset.id === sceneId);
+    });
+}
+
+fetch('config.json')
+    .then(response => response.json())
+    .then(config => {
+        // Build thumbnails
+        Object.keys(config.scenes).forEach(sId => {
+            const scene = config.scenes[sId];
+            const thumb = document.createElement('div');
+            thumb.className = 'thumb' + (sId === config.default.firstScene ? ' active' : '');
+            thumb.dataset.id = sId;
+            const img = document.createElement('img');
+            img.src = scene.thumbnail || scene.panorama;
+            img.onerror = function() { this.src = scene.panorama; };
+            const span = document.createElement('span');
+            span.textContent = scene.title;
+            thumb.appendChild(img);
+            thumb.appendChild(span);
+            thumb.onclick = () => transitionToScene(sId);
+            thumbsContainer.appendChild(thumb);
+        });
+
+        // Inject custom click handlers and preserve target IDs for prefetching
+        Object.keys(config.scenes).forEach(sId => {
+            config.scenes[sId].hotSpots.forEach(hs => {
+                if (hs.type === 'scene') {
+                    const targetId = hs.sceneId;
+                    const tp = hs.targetPitch;
+                    const ty = hs.targetYaw;
+                    hs._targetSceneId = targetId; // Preserve for prefetching
+                    hs.clickHandlerFunc = () => transitionToScene(targetId, tp, ty);
+                    delete hs.sceneId;
+                }
+            });
+        });
+
+        // Immediately prefetch neighbors (with delay)
+        setTimeout(() => {
+            prefetchNeighbors(config.default.firstScene, config);
+        }, 2000);
+
+        // Mobile FOV adjustment
+        config.default.hfov = isMobile ? 75 : 100;
+
+        viewer = pannellum.viewer('panorama', config);
+
+        // When a scene loads, prefetch its neighbors
+        viewer.on('load', () => {
+            const currentSceneId = viewer.getScene();
+            prefetchNeighbors(currentSceneId, config);
+        });
+    });
+</script>
+</body>
+</html>
