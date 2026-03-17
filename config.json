@@ -1,0 +1,512 @@
+{
+  "default": {
+    "firstScene": "scene-1773723499407-ennsdlbkr",
+    "sceneFadeDuration": 800,
+    "autoLoad": true
+  },
+  "scenes": {
+    "scene-1773723499407-ennsdlbkr": {
+      "title": "front door",
+      "panorama": "images/scene-1773723499407-ennsdlbkr.jpg",
+      "thumbnail": "thumbnails/scene-1773723499407-ennsdlbkr.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "pitch": -31.610963640923018,
+          "yaw": 5.2471325238055755,
+          "type": "scene",
+          "text": "Go to stairs",
+          "sceneId": "scene-1773723501239-irptk8x0y",
+          "targetPitch": -4.920290686839678,
+          "targetYaw": -87.54721238100603
+        },
+        {
+          "pitch": -28.803129720314047,
+          "yaw": -93.71781315531133,
+          "type": "scene",
+          "text": "Go to front room",
+          "sceneId": "scene-1773723500194-pfagef47z",
+          "targetPitch": -4.033868448675516,
+          "targetYaw": -88.9114691343716
+        },
+        {
+          "pitch": -17.699465710496064,
+          "yaw": 5.825865701473209,
+          "type": "scene",
+          "text": "Go to living room",
+          "sceneId": "scene-1773723501930-tuaoxjeux",
+          "targetPitch": 0,
+          "targetYaw": 0
+        }
+      ]
+    },
+    "scene-1773723500194-pfagef47z": {
+      "title": "front room",
+      "panorama": "images/scene-1773723500194-pfagef47z.jpg",
+      "thumbnail": "thumbnails/scene-1773723500194-pfagef47z.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "pitch": -23.756879444139617,
+          "yaw": 83.06475115150313,
+          "type": "scene",
+          "text": "Go to front door",
+          "sceneId": "scene-1773723499407-ennsdlbkr",
+          "targetPitch": 0.26418571717674055,
+          "targetYaw": 86.4473530204682
+        }
+      ]
+    },
+    "scene-1773723501239-irptk8x0y": {
+      "title": "stairs",
+      "panorama": "images/scene-1773723501239-irptk8x0y.jpg",
+      "thumbnail": "thumbnails/scene-1773723501239-irptk8x0y.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "pitch": -30.999187317417096,
+          "yaw": 4.850107096389413,
+          "type": "scene",
+          "text": "Go to Living Room",
+          "sceneId": "scene-1773723501930-tuaoxjeux",
+          "targetPitch": 2.7570769571956917,
+          "targetYaw": 6.288337415028991
+        },
+        {
+          "pitch": -29.82995806798248,
+          "yaw": -167.36081214404237,
+          "type": "scene",
+          "text": "Go to front door",
+          "sceneId": "scene-1773723499407-ennsdlbkr",
+          "targetPitch": -7.191052012933907,
+          "targetYaw": -175.32138984822188
+        },
+        {
+          "pitch": -33.63937560268761,
+          "yaw": 50.10224066130644,
+          "type": "scene",
+          "text": "Go to Master Entry",
+          "sceneId": "scene-1773723502746-ilpms6jot",
+          "targetPitch": -4.150657040379558,
+          "targetYaw": 28.89645693900411
+        },
+        {
+          "pitch": 16.76165537533919,
+          "yaw": -79.76541127473331,
+          "type": "scene",
+          "text": "Go to Top of stairs",
+          "sceneId": "scene-1773723512885-omsjjlz5w",
+          "targetPitch": 0,
+          "targetYaw": 0
+        }
+      ]
+    },
+    "scene-1773723501930-tuaoxjeux": {
+      "title": "living room",
+      "panorama": "images/scene-1773723501930-tuaoxjeux.jpg",
+      "thumbnail": "thumbnails/scene-1773723501930-tuaoxjeux.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "pitch": -44.22331364287138,
+          "yaw": -166.78249184905758,
+          "type": "scene",
+          "text": "Go to stairs",
+          "sceneId": "scene-1773723501239-irptk8x0y",
+          "targetPitch": -14.639968492671862,
+          "targetYaw": -169.82841208452913
+        },
+        {
+          "pitch": -19.596481981128026,
+          "yaw": -173.35201389381623,
+          "type": "scene",
+          "text": "Go to front door",
+          "sceneId": "scene-1773723499407-ennsdlbkr",
+          "targetPitch": 0,
+          "targetYaw": 0
+        },
+        {
+          "pitch": 9.294009056859261,
+          "yaw": -112.24623253718613,
+          "type": "scene",
+          "text": "Go to Top of stairs",
+          "sceneId": "scene-1773723512885-omsjjlz5w",
+          "targetPitch": 3.433697146589685,
+          "targetYaw": -113.74697059280675
+        },
+        {
+          "pitch": -33.14527677740508,
+          "yaw": 92.30488188987897,
+          "type": "scene",
+          "text": "Go to Master Entry",
+          "sceneId": "scene-1773723502746-ilpms6jot",
+          "targetPitch": 3.433697146589685,
+          "targetYaw": -113.74697059280675
+        }
+      ]
+    },
+    "scene-1773723502746-ilpms6jot": {
+      "title": "Master Entry",
+      "panorama": "images/scene-1773723502746-ilpms6jot.jpg",
+      "thumbnail": "thumbnails/scene-1773723502746-ilpms6jot.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "pitch": -23.938895382555827,
+          "yaw": -119.95437464951651,
+          "type": "scene",
+          "text": "Go to stairs",
+          "sceneId": "scene-1773723501239-irptk8x0y",
+          "targetPitch": -4.556143978488917,
+          "targetYaw": -99.89394140914789
+        },
+        {
+          "pitch": -27.675932955966825,
+          "yaw": -94.26641720179548,
+          "type": "scene",
+          "text": "Go to living room",
+          "sceneId": "scene-1773723501930-tuaoxjeux",
+          "targetPitch": 0,
+          "targetYaw": 0
+        },
+        {
+          "pitch": -33.27303838795801,
+          "yaw": 33.024328206074216,
+          "type": "scene",
+          "text": "Go to Master",
+          "sceneId": "scene-1773723503518-ytaqjdbft",
+          "targetPitch": -3.017421180055379,
+          "targetYaw": 18.007522670642402
+        },
+        {
+          "pitch": 9.023568016527069,
+          "yaw": -106.26590358874134,
+          "type": "scene",
+          "text": "Go to Top of stairs",
+          "sceneId": "scene-1773723512885-omsjjlz5w",
+          "targetPitch": 0.8982728105160249,
+          "targetYaw": -108.08548144110273
+        }
+      ]
+    },
+    "scene-1773723503518-ytaqjdbft": {
+      "title": "Master",
+      "panorama": "images/scene-1773723503518-ytaqjdbft.jpg",
+      "thumbnail": "thumbnails/scene-1773723503518-ytaqjdbft.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "pitch": -25.32041816560452,
+          "yaw": -138.42518009612084,
+          "type": "scene",
+          "text": "Go to Master Entry",
+          "sceneId": "scene-1773723502746-ilpms6jot",
+          "targetPitch": -1.1570049880984976,
+          "targetYaw": -132.02695399222318
+        }
+      ]
+    },
+    "scene-1773723504283-8fl9zz0ii": {
+      "title": "IMG_20260316_095337_00_049",
+      "panorama": "images/scene-1773723504283-8fl9zz0ii.jpg",
+      "thumbnail": "thumbnails/scene-1773723504283-8fl9zz0ii.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723505103-n0li7kle8": {
+      "title": "IMG_20260316_095439_00_050",
+      "panorama": "images/scene-1773723505103-n0li7kle8.jpg",
+      "thumbnail": "thumbnails/scene-1773723505103-n0li7kle8.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723505746-gy4t1d9b8": {
+      "title": "IMG_20260316_095623_00_051",
+      "panorama": "images/scene-1773723505746-gy4t1d9b8.jpg",
+      "thumbnail": "thumbnails/scene-1773723505746-gy4t1d9b8.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723506464-1fglvah1k": {
+      "title": "IMG_20260316_095749_00_052",
+      "panorama": "images/scene-1773723506464-1fglvah1k.jpg",
+      "thumbnail": "thumbnails/scene-1773723506464-1fglvah1k.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723507153-hwnhqcb8z": {
+      "title": "IMG_20260316_095907_00_053",
+      "panorama": "images/scene-1773723507153-hwnhqcb8z.jpg",
+      "thumbnail": "thumbnails/scene-1773723507153-hwnhqcb8z.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723507808-kcon601ny": {
+      "title": "IMG_20260316_100027_00_054",
+      "panorama": "images/scene-1773723507808-kcon601ny.jpg",
+      "thumbnail": "thumbnails/scene-1773723507808-kcon601ny.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723508467-qrmhspo9m": {
+      "title": "IMG_20260316_100132_00_055",
+      "panorama": "images/scene-1773723508467-qrmhspo9m.jpg",
+      "thumbnail": "thumbnails/scene-1773723508467-qrmhspo9m.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723509099-xmfwhlhb5": {
+      "title": "IMG_20260316_100212_00_056",
+      "panorama": "images/scene-1773723509099-xmfwhlhb5.jpg",
+      "thumbnail": "thumbnails/scene-1773723509099-xmfwhlhb5.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723509705-2ctxobog4": {
+      "title": "IMG_20260316_100314_00_057",
+      "panorama": "images/scene-1773723509705-2ctxobog4.jpg",
+      "thumbnail": "thumbnails/scene-1773723509705-2ctxobog4.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723510337-l8h7l6hyw": {
+      "title": "IMG_20260316_100350_00_058",
+      "panorama": "images/scene-1773723510337-l8h7l6hyw.jpg",
+      "thumbnail": "thumbnails/scene-1773723510337-l8h7l6hyw.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723510976-ucyzzko6a": {
+      "title": "IMG_20260316_100506_00_059",
+      "panorama": "images/scene-1773723510976-ucyzzko6a.jpg",
+      "thumbnail": "thumbnails/scene-1773723510976-ucyzzko6a.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723511565-fkdrawqjx": {
+      "title": "IMG_20260316_100620_00_060",
+      "panorama": "images/scene-1773723511565-fkdrawqjx.jpg",
+      "thumbnail": "thumbnails/scene-1773723511565-fkdrawqjx.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723512072-l73zgmm5l": {
+      "title": "IMG_20260316_100728_00_061",
+      "panorama": "images/scene-1773723512072-l73zgmm5l.jpg",
+      "thumbnail": "thumbnails/scene-1773723512072-l73zgmm5l.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723512885-omsjjlz5w": {
+      "title": "Top of stairs",
+      "panorama": "images/scene-1773723512885-omsjjlz5w.jpg",
+      "thumbnail": "thumbnails/scene-1773723512885-omsjjlz5w.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "pitch": -41.178103830840726,
+          "yaw": 89.3071793389995,
+          "type": "scene",
+          "text": "Go to stairs",
+          "sceneId": "scene-1773723501239-irptk8x0y",
+          "targetPitch": 0,
+          "targetYaw": 0
+        },
+        {
+          "pitch": -18.998539298894457,
+          "yaw": 1.3370568202808764,
+          "type": "scene",
+          "text": "Go to TV Room",
+          "sceneId": "scene-1773723513573-lopkonjp1",
+          "targetPitch": 0,
+          "targetYaw": 0
+        }
+      ]
+    },
+    "scene-1773723513573-lopkonjp1": {
+      "title": "TV Room",
+      "panorama": "images/scene-1773723513573-lopkonjp1.jpg",
+      "thumbnail": "thumbnails/scene-1773723513573-lopkonjp1.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": [
+        {
+          "pitch": -27.435002504283993,
+          "yaw": -117.8889933797796,
+          "type": "scene",
+          "text": "Go to Top of stairs",
+          "sceneId": "scene-1773723512885-omsjjlz5w",
+          "targetPitch": 0,
+          "targetYaw": 0
+        }
+      ]
+    },
+    "scene-1773723514296-r0ld97lbj": {
+      "title": "IMG_20260316_101246_00_065",
+      "panorama": "images/scene-1773723514296-r0ld97lbj.jpg",
+      "thumbnail": "thumbnails/scene-1773723514296-r0ld97lbj.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723514835-5dt5ow956": {
+      "title": "IMG_20260316_101335_00_066",
+      "panorama": "images/scene-1773723514835-5dt5ow956.jpg",
+      "thumbnail": "thumbnails/scene-1773723514835-5dt5ow956.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723515490-h6vmjui4d": {
+      "title": "IMG_20260316_101419_00_067",
+      "panorama": "images/scene-1773723515490-h6vmjui4d.jpg",
+      "thumbnail": "thumbnails/scene-1773723515490-h6vmjui4d.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723516040-ruvoupeqq": {
+      "title": "IMG_20260316_101503_00_068",
+      "panorama": "images/scene-1773723516040-ruvoupeqq.jpg",
+      "thumbnail": "thumbnails/scene-1773723516040-ruvoupeqq.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723516556-zg71zynwf": {
+      "title": "IMG_20260316_101551_00_069",
+      "panorama": "images/scene-1773723516556-zg71zynwf.jpg",
+      "thumbnail": "thumbnails/scene-1773723516556-zg71zynwf.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723517126-vpdw27fu5": {
+      "title": "IMG_20260316_101727_00_070",
+      "panorama": "images/scene-1773723517126-vpdw27fu5.jpg",
+      "thumbnail": "thumbnails/scene-1773723517126-vpdw27fu5.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723517824-6xyinmkjf": {
+      "title": "IMG_20260316_101830_00_071",
+      "panorama": "images/scene-1773723517824-6xyinmkjf.jpg",
+      "thumbnail": "thumbnails/scene-1773723517824-6xyinmkjf.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723518406-7pu0mvpn5": {
+      "title": "IMG_20260316_101917_00_072",
+      "panorama": "images/scene-1773723518406-7pu0mvpn5.jpg",
+      "thumbnail": "thumbnails/scene-1773723518406-7pu0mvpn5.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723519055-peiib18ah": {
+      "title": "IMG_20260316_101948_00_073",
+      "panorama": "images/scene-1773723519055-peiib18ah.jpg",
+      "thumbnail": "thumbnails/scene-1773723519055-peiib18ah.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723519764-a3kjgia2n": {
+      "title": "IMG_20260316_102031_00_074",
+      "panorama": "images/scene-1773723519764-a3kjgia2n.jpg",
+      "thumbnail": "thumbnails/scene-1773723519764-a3kjgia2n.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723520299-mwbiy1214": {
+      "title": "IMG_20260316_102159_00_075",
+      "panorama": "images/scene-1773723520299-mwbiy1214.jpg",
+      "thumbnail": "thumbnails/scene-1773723520299-mwbiy1214.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723521043-364ikhqvh": {
+      "title": "IMG_20260316_102808_00_076",
+      "panorama": "images/scene-1773723521043-364ikhqvh.jpg",
+      "thumbnail": "thumbnails/scene-1773723521043-364ikhqvh.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723521631-2a7glewau": {
+      "title": "IMG_20260316_102857_00_077",
+      "panorama": "images/scene-1773723521631-2a7glewau.jpg",
+      "thumbnail": "thumbnails/scene-1773723521631-2a7glewau.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    },
+    "scene-1773723522253-0n41y8bp8": {
+      "title": "IMG_20260316_102925_00_078",
+      "panorama": "images/scene-1773723522253-0n41y8bp8.jpg",
+      "thumbnail": "thumbnails/scene-1773723522253-0n41y8bp8.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hfov": 100,
+      "hotSpots": []
+    }
+  }
+}
